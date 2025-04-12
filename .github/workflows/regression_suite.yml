@@ -28,11 +28,11 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -s --html=report.html --self-contained-html
+          mkdir -p reports
+          pytest -s --html=reports/report.html --self-contained-html
 
       - name: Upload test report
         uses: actions/upload-artifact@v3.1.3
         with:
           name: test-report
           path: reports/report.html
-
