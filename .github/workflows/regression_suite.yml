@@ -10,7 +10,9 @@ on:
 
 jobs:
   run-tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
@@ -29,10 +31,10 @@ jobs:
       - name: Run tests
         run: |
           mkdir -p reports
-          pytest -s --html=report.html --self-contained-html
+          pytest -s --html=reports/report.html --self-contained-html
 
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-report
-          path: report.html
+          path: reports/report.html
