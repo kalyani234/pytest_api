@@ -10,7 +10,7 @@ from datetime import datetime
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
     # Set the path for the reports directory
-    report_dir = "/Users/navyakalyani/Documents/pytest_framwork/reports"
+    report_dir = "reports"
     now = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
     # Ensure the reports directory exists
